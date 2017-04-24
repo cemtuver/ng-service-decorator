@@ -1,11 +1,10 @@
-import { BaseResponse } from "../responses/base.response";
 import { RequestHandler } from "../handlers/request.handler";
 import { ResponseHandler } from "../handlers/response.handler";
 
 /**
  * Base request
  */
-export abstract class BaseRequest<T extends BaseResponse>{
+export abstract class BaseRequest<TResponse>{
 
      private _requestHandler: RequestHandler;
 
@@ -18,7 +17,7 @@ export abstract class BaseRequest<T extends BaseResponse>{
       * @param response Response
       * @param responseHandler Response handler
       */
-     protected onSuccessResponseReceived(response: T, responseHandler: ResponseHandler<T>): void {
+     protected onSuccessResponseReceived(response: TResponse, responseHandler: ResponseHandler<TResponse>): void {
           this._requestHandler.onAfterRequestExecution();
           responseHandler.successHandler.call(this._requestHandler, response);
      }
@@ -28,18 +27,18 @@ export abstract class BaseRequest<T extends BaseResponse>{
       * @param response Response
       * @param responseHandler Response handler
       */
-     protected onErrorResponseReceived(response: T, responseHandler: ResponseHandler<T>): void {
+     protected onErrorResponseReceived(response: TResponse, responseHandler: ResponseHandler<TResponse>): void {
           this._requestHandler.onAfterRequestExecution();
           responseHandler.errorHandler.call(this._requestHandler, response);
      }
 
-     protected abstract onSend(responseHandler: ResponseHandler<T>): void;
+     protected abstract onSend(responseHandler: ResponseHandler<TResponse>): void;
 
      /**
       * Sends the current request.
       * @param responseHandler Response handler
       */
-     public send(responseHandler: ResponseHandler<T>): void {
+     public send(responseHandler: ResponseHandler<TResponse>): void {
           this._requestHandler.onBeforeRequestExecution();
           this.onSend(responseHandler);
      }
