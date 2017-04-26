@@ -1,6 +1,6 @@
 {
   "name": "ng-service-decorator",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Easy to use base service library",
   "repository": {
     "type": "git",
