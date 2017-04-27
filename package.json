@@ -1,15 +1,12 @@
 {
   "name": "ng-service-decorator",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Easy to use base service library",
   "repository": {
     "type": "git",
     "url": ""
   },
   "author": "cemtuver, ulubeyn",
-  "peerDependencies": {
-    "rxjs": "^5.1.0"
-  },
   "devDependencies": {
     "@angular/http": "^4.0.3",
     "rxjs": "^5.1.0"
