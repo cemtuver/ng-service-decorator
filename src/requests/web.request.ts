@@ -1,5 +1,4 @@
 import { Observable } from "rxjs/Observable";
-
 import { BaseRequest } from "./base.request";
 import { RequestHandler } from "../handlers/request.handler";
 import { ResponseHandler } from "../handlers/response.handler";
